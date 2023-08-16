@@ -1,0 +1,80 @@
+version: 2
+
+models:
+  - name: dim_date
+    description: "dim_date"
+    columns:
+      - name: date_key
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+
+models:
+  - name: dim_customer
+    description: "customer dimensoin model"
+    columns:
+      - name: customer_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null      
+
+sources:
+  - name: stg
+    database: sakila_wh
+    schema: stg
+    tables:
+      - name: customer
+      - name: address
+      - name: city
+      - name: country
+      
+models:
+  - name: dim_staff
+    description: "staff dimensoin model"
+    columns:
+      - name: staff_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null                 
+
+models:
+  - name: dim_store
+    description: "store dimensoin model"
+    columns:
+      - name: dim_store_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null 
+
+models:
+  - name: dim_film
+    description: "film dimensoin model"
+    columns:
+      - name: film_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null 
+
+models:
+  - name: dim_film_inq
+    description: "dim_film_inq dimensoin model"
+    columns:
+      - name: film_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null         
+
+  - name: rental
+    description: "dim_rental dimensoin model"
+    columns:
+      - name: rental_id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null               
